@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAMER — Official Artist</title>
+<style>
+:root{--bg:#080808;--panel:#141414;--text:#ffffff;--muted:#b6b6b6;--accent:#f02b3a;--line:#2b2b2b}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+a{color:inherit;text-decoration:none}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:10;background:#090909e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.16em;font-size:1.1rem}.brand span{color:var(--accent)}
+nav{display:flex;gap:22px;color:#d0ccc5;font-size:.9rem}nav a:hover,nav a.active{color:var(--accent)}.menu{display:none;background:none;color:white;border:1px solid var(--line);padding:9px 12px;border-radius:10px}
+main{min-height:75vh}.page-hero{padding:85px 0 45px}.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.2em;font-size:.75rem;font-weight:800}
+h1{font-size:clamp(3rem,8vw,6.5rem);line-height:.92;letter-spacing:-.075em;margin:18px 0}h1 em{font-style:normal;color:var(--accent)}h2{letter-spacing:-.05em}p{line-height:1.8;color:var(--muted)}.lead{font-size:1.08rem;max-width:650px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 20px;border-radius:999px;font-weight:800;border:1px solid var(--line);transition:.2s;cursor:pointer}.btn.primary{background:var(--accent);color:#111;border-color:var(--accent)}.btn:hover{transform:translateY(-3px)}
+section.content{padding:35px 0 85px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:23px;min-height:180px}.card h3{margin:10px 0}.art{height:210px;border-radius:15px;background:radial-gradient(circle at 65% 30%,#858a60,#333a2b 32%,#111 72%);display:flex;align-items:end;padding:20px;font-weight:900;font-size:1.8rem;letter-spacing:-.05em}.track{display:grid;grid-template-columns:56px 1fr auto;align-items:center;gap:16px;background:var(--panel);padding:15px;border:1px solid var(--line);border-radius:16px;margin:10px 0}.track .art-small{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#8c9063,#1c2119 60%,#c7a77d);display:grid;place-items:center;font-size:1.3rem}.track h3{margin:0 0 5px}.track p{margin:0;font-size:.85rem}.track button{border:1px solid #444;background:#202020;color:var(--accent);width:42px;height:42px;border-radius:50%;cursor:pointer}
+.form{display:grid;gap:15px;max-width:650px}.form input,.form textarea,.form select{width:100%;background:#141414;color:#fff;border:1px solid #343434;border-radius:12px;padding:14px;font:inherit}.form textarea{min-height:140px;resize:vertical}.form label{display:grid;gap:7px;color:#d6d1c8;font-size:.9rem}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.foot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}.socials{display:flex;gap:18px}
+@media(max-width:760px){.menu{display:block}nav{display:none;position:absolute;top:76px;left:0;right:0;background:#101010;padding:22px 4%;border-bottom:1px solid var(--line);flex-direction:column;gap:18px}nav.open{display:flex}.grid{grid-template-columns:1fr}.page-hero{padding:60px 0 30px}.track{gap:10px}}
+
+.page-view{display:none}.page-view.active{display:block}.nav a{cursor:pointer}
+/* RED / BLACK / WHITE VISUAL REFRESH */
+body{background:radial-gradient(ellipse at 80% -10%,#25090d 0,transparent 35%),var(--bg);color:#fff}
+header{background:rgba(8,8,8,.92);border-bottom:1px solid #2d1719}
+.brand{font-size:1.18rem;letter-spacing:.2em}.brand span{color:#f02b3a}
+nav a{position:relative;padding:8px 0;transition:color .2s}
+nav a:after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:#f02b3a;transition:width .2s}
+nav a:hover:after,nav a.active:after{width:100%}
+.eyebrow{color:#ff3c4b}
+h1{font-weight:950;text-transform:uppercase;text-shadow:0 8px 35px #000;line-height:.88}
+h1 em{color:#f02b3a;text-shadow:0 0 35px #f02b3a30}
+p{color:#b9b9b9}
+.btn{border:1px solid #444;background:#101010;color:#fff;box-shadow:0 8px 24px #0003}
+.btn.primary{background:#f02b3a;border-color:#f02b3a;color:#fff;box-shadow:0 10px 35px #f02b3a30}
+.btn.primary:hover{background:#fff;border-color:#fff;color:#111}
+.card,.track{background:linear-gradient(145deg,#191919,#101010);border:1px solid #303030;box-shadow:0 14px 35px #0003;transition:transform .25s,border-color .25s}
+.card:hover,.track:hover{transform:translateY(-4px);border-color:#f02b3a66}
+.card h2,.card h3,.track h3{color:#fff}
+.art,.art-small{background:radial-gradient(circle at 65% 25%,#fa4551,#75121d 35%,#171717 72%)!important;color:#fff;border:1px solid #ffffff14}
+.track button{background:#f02b3a;color:#fff;border-color:#f02b3a}
+.track button:hover{background:#fff;color:#111}
+.page-hero{position:relative;isolation:isolate}
+.page-hero:before{content:"";position:absolute;z-index:-1;right:0;top:30px;width:min(38vw,400px);height:min(38vw,400px);border-radius:50%;background:radial-gradient(circle,#f02b3a1f,transparent 68%);pointer-events:none}
+.page-view.active{animation:pageIn .35s ease both}
+@keyframes pageIn{from{opacity:.45;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.form input:focus,.form textarea:focus,.form select:focus{outline:1px solid #f02b3a;border-color:#f02b3a}
+.form input,.form textarea,.form select{background:#101010;border-color:#333;color:#fff}
+footer{border-top:1px solid #2b2b2b;background:#080808}
+.socials a:hover{color:#f02b3a}
+.menu{border-color:#444}
+::selection{background:#f02b3a;color:white}
+@media(max-width:760px){nav{background:#0c0c0c;border-color:#302020}.page-hero:before{width:220px;height:220px;top:20px}}
+
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#home" data-page="home">SAMER<span>®</span></a>
+<button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
+<nav id="nav"><a href="#home" data-page="home" class="active">Home</a><a href="#music" data-page="music" class="">Music</a><a href="#releases" data-page="releases" class="">Releases</a><a href="#gallery" data-page="gallery" class="">Gallery</a><a href="#about" data-page="about" class="">About</a><a href="#journal" data-page="journal" class="">Journal</a><a href="#contact" data-page="contact" class="">Contact</a></nav>
+</div></header>
+<main><section class="page-view active" id="page-home">
+<section class="page-hero wrap"><div class="eyebrow">Independent artist · Pakistan</div><h1>Feel it.<br><em>Keep it.</em></h1><p class="lead">Melodies for the late nights, words for the things we never say, and music that stays with you long after the song ends.</p><a class="btn primary" href="music.html">▶ Explore music</a> <a class="btn" href="about.html">Meet the artist ↗</a></section>
+<section class="content wrap"><div class="grid"><article class="card"><div class="eyebrow">01 / Listen</div><h2>Music that feels personal.</h2><p>Explore singles, romantic melodies and late-night sounds.</p><a class="btn" href="music.html">Browse music ↗</a></article><article class="card"><div class="eyebrow">02 / Discover</div><h2>Behind the songs.</h2><p>Learn about the artist and the ideas behind the music.</p><a class="btn" href="about.html">Artist story ↗</a></article><article class="card"><div class="eyebrow">03 / Connect</div><h2>Stay in the loop.</h2><p>See updates, visuals and ways to get in touch.</p><a class="btn" href="contact.html">Contact ↗</a></article></div></section>
+</section>
+<section class="page-view " id="page-music">
+<section class="page-hero wrap"><div class="eyebrow">Listen / Repeat</div><h1>The <em>music.</em></h1><p class="lead">A collection of demo releases and moods. Connect real audio or streaming URLs to make these playable.</p></section>
+<section class="content wrap"><div class="track"><div class="art-small">♫</div><div><h3>Ve Saajana</h3><p>Romantic / Punjabi · Single</p></div><button onclick="demo(this)">▶</button></div><div class="track"><div class="art-small">☾</div><div><h3>Tu Kahan Hai</h3><p>Late-night mood · Single</p></div><button onclick="demo(this)">▶</button></div><div class="track"><div class="art-small">✳</div><div><h3>The Finest</h3><p>Dreamy / R&B · Single</p></div><button onclick="demo(this)">▶</button></div><p id="notice">Demo controls — connect your audio files or Spotify links for playback.</p></section>
+</section>
+<section class="page-view " id="page-releases">
+<section class="page-hero wrap"><div class="eyebrow">Discography</div><h1>Every release.<br><em>Every feeling.</em></h1><p class="lead">A home for singles, upcoming drops, cover art and release notes.</p></section>
+<section class="content wrap"><div class="grid"><article class="card"><div class="art">VE SAAJANA</div><h2>Ve Saajana</h2><p>Romantic single · Punjabi mood</p><span class="eyebrow">Released / Demo listing</span></article><article class="card"><div class="art" style="background:linear-gradient(140deg,#f02b3a,#4a0d14,#090909)">TU KAHAN HAI</div><h2>Tu Kahan Hai</h2><p>A late-night song about distance and memories.</p><span class="eyebrow">Single / Demo listing</span></article><article class="card"><div class="art" style="background:linear-gradient(140deg,#fff,#777,#171717)">THE FINEST</div><h2>The Finest</h2><p>Dreamy sounds and a mellow atmosphere.</p><span class="eyebrow">Single / Demo listing</span></article></div></section>
+</section>
+<section class="page-view " id="page-gallery">
+<section class="page-hero wrap"><div class="eyebrow">Visual world</div><h1>Frames from<br><em>the feeling.</em></h1><p class="lead">A gallery space for cover art, portraits, behind-the-scenes shots and music visuals.</p></section>
+<section class="content wrap"><div class="grid"><article class="card"><div class="art">01</div><h3>Cover art</h3><p>Artwork concepts for new releases.</p></article><article class="card"><div class="art" style="background:linear-gradient(145deg,#f02b3a,#171717,#777)">02</div><h3>Studio mood</h3><p>Creative sessions and sound inspiration.</p></article><article class="card"><div class="art" style="background:linear-gradient(145deg,#fff,#333,#f02b3a)">03</div><h3>Portraits</h3><p>Artist visuals and promotional photos.</p></article></div></section>
+</section>
+<section class="page-view " id="page-about">
+<section class="page-hero wrap"><div class="eyebrow">The artist</div><h1>Music,<br><em>made personal.</em></h1><p class="lead">I'm an independent artist building a sound around honest lyrics, romantic melodies and a little midnight nostalgia.</p></section>
+<section class="content wrap"><div class="grid"><article class="card"><div class="eyebrow">The sound</div><h2>Melody first.</h2><p>Romantic hooks, soft moods and lyrics that feel like a message you never sent.</p></article><article class="card"><div class="eyebrow">The process</div><h2>Independent by choice.</h2><p>From writing and demos to cover art and releases, every step is part of the journey.</p></article><article class="card"><div class="eyebrow">The goal</div><h2>Connect honestly.</h2><p>Make music people can return to when words are hard to find.</p></article></div></section>
+</section>
+<section class="page-view " id="page-journal">
+<section class="page-hero wrap"><div class="eyebrow">Notes & updates</div><h1>The <em>journal.</em></h1><p class="lead">Small updates from the creative process, new music announcements and notes behind the songs.</p></section>
+<section class="content wrap"><article class="card" style="margin-bottom:14px"><div class="eyebrow">Studio note / 01</div><h2>Building a song from a feeling</h2><p>Sometimes a melody starts with one line, a late-night thought or a moment that stays in your head. This journal will collect those little beginnings.</p></article><article class="card"><div class="eyebrow">Release update / 02</div><h2>More music on the way</h2><p>Use this space to share release dates, artwork reveals, lyric snippets and links to new tracks.</p></article></section>
+</section>
+<section class="page-view " id="page-contact">
+<section class="page-hero wrap"><div class="eyebrow">Say hello</div><h1>Let's make<br><em>something real.</em></h1><p class="lead">For collaborations, music enquiries or just to say hello, send a message below.</p></section>
+<section class="content wrap"><form class="form" onsubmit="event.preventDefault();document.getElementById('formMsg').textContent='Demo form only. Connect a backend or form service to receive messages.'"><label>Your name<input required placeholder="Name"></label><label>Email address<input required type="email" placeholder="you@example.com"></label><label>What is this about?<select><option>Collaboration</option><option>Music enquiry</option><option>Press / media</option><option>Other</option></select></label><label>Message<textarea required placeholder="Write your message..."></textarea></label><button class="btn primary" type="submit">Send message ↗</button><p id="formMsg"></p></form></section>
+</section></main>
+<footer><div class="wrap foot"><span>© <span id="year"></span> SAMER. Built with feeling.</span>
+<div class="socials"><a href="#" onclick="return demoLink(event)">Instagram</a><a href="#" onclick="return demoLink(event)">YouTube</a><a href="#" onclick="return demoLink(event)">Spotify</a></div></div></footer>
+<script>
+const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+document.getElementById('year').textContent=new Date().getFullYear();
+function showPage(page){
+  document.querySelectorAll('.page-view').forEach(el=>el.classList.toggle('active',el.id==='page-'+page));
+  document.querySelectorAll('[data-page]').forEach(el=>el.classList.toggle('active',el.dataset.page===page));
+  nav.classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.replaceState(null,'','#'+page);
+}
+document.querySelectorAll('[data-page]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();showPage(el.dataset.page)}));
+function demo(btn){
+  document.querySelectorAll('.track button').forEach(b=>b.textContent='▶');
+  btn.textContent='Ⅱ';
+  const notice=document.getElementById('notice');
+  if(notice) notice.textContent='Preview selected. Connect a real audio file or streaming URL to enable playback.';
+}
+function demoLink(e){e.preventDefault();alert('Replace this demo link with your real social profile URL.');return false}
+document.querySelectorAll('form').forEach(form=>form.addEventListener('submit',e=>{
+ e.preventDefault();
+ const msg=document.getElementById('formMsg');
+ if(msg) msg.textContent='Demo form only. Connect a backend or form service to receive messages.';
+}));
+window.addEventListener('load',()=>{const page=location.hash.replace('#','');if(page && document.getElementById('page-'+page))showPage(page)});
+</script>
+</body>
+</html>
